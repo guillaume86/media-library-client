@@ -1,4 +1,7 @@
 request = require 'superagent'
+# need to use this because superagent do not use it client size
+# and it is not swappable
+serializeQuery = require('qs').stringify
 
 class MediaLibraryClient
   constructor: (options) ->
@@ -27,7 +30,7 @@ class MediaLibraryClient
       query = {}
     request
       .get(@_baseUrl + '/tracks')
-      .query(query)
+      .query(serializeQuery(query))
       .end((err, res) ->
         return callback(err) if err
         callback(null, res.body)
@@ -39,7 +42,7 @@ class MediaLibraryClient
       query = {}
     request
       .get(@_baseUrl + '/artists')
-      .query(query)
+      .query(serializeQuery(query))
       .end((err, res) ->
         return callback(err) if err
         callback(null, res.body)
@@ -51,7 +54,7 @@ class MediaLibraryClient
       query = {}
     request
       .get(@_baseUrl + '/albums')
-      .query(query)
+      .query(serializeQuery(query))
       .end((err, res) ->
         return callback(err) if err
         callback(null, res.body)
@@ -63,7 +66,7 @@ class MediaLibraryClient
       query = {}
     request
       .get(@_baseUrl + '/find')
-      .query(query)
+      .query(serializeQuery(query))
       .end((err, res) ->
         return callback(err) if err
         callback(null, res.body)

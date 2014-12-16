@@ -31,6 +31,7 @@
     "should": "^4.3.0"
   },
   "dependencies": {
+    "qs": "^2.3.3",
     "superagent": "^0.21.0"
   }
 }
