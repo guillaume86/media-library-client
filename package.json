@@ -1,6 +1,6 @@
 {
   "name": "media-library-client",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "an isomorphic client for media-library-server",
   "main": "./lib/index",
   "scripts": {
